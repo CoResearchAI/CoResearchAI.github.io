@@ -11,7 +11,7 @@
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      integrity="9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
@@ -445,4 +445,84 @@
       <p>Please fill out the form below to get in touch with us.</p>
       <form class="contact-form">
         <input type="text" placeholder="Your Name" required />
-        <input
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your Message" rows="4" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+    <section id="patents" class="services">
+      <h2>Our Patents and IPs</h2>
+      <div class="carousel-container">
+        <div class="carousel-item">
+          <img
+            src="patent1.png"
+            alt="Patent 1"
+            style="max-width: 100%; height: auto"
+          />
+          <p>Patent 1</p>
+        </div>
+        <div class="carousel-item">
+          <img
+            src="patent2.png"
+            alt="Patent 2"
+            style="max-width: 100%; height: auto"
+          />
+          <p>Patent 2</p>
+        </div>
+        <div class="carousel-item">
+          <img
+            src="patent3.png"
+            alt="Patent 3"
+            style="max-width: 100%; height: auto"
+          />
+          <p>Patent 3</p>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <p>&copy; 2024 CoResearch AI. All rights reserved.</p>
+    </footer>
+    <script>
+      const sections = document.querySelectorAll("section");
+      const navLi = document.querySelectorAll("nav ul li");
+      window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          if (
+            pageYOffset >=
+            sectionTop -
+              (window.innerHeight / 3) /* changed value of division to 3 */
+          ) {
+            current = section.getAttribute("id");
+          }
+        });
+        navLi.forEach((li) => {
+          li.classList.remove("active");
+          if (li.getElementsByTagName("a")[0].getAttribute("href").slice(1) ==
+              current
+          ) {
+            li.classList.add("active");
+          }
+        });
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+            } else {
+              entry.target.classList.remove("active");
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+
+      sections.forEach((section) => {
+        observer.observe(section);
+      });
+    </script>
+  </body>
+</html>
