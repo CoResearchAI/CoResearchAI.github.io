@@ -99,10 +99,12 @@
         position: relative;
         opacity: 1;
         transform: scale(1);
-        background-color: var(--surface-color);
+        background: linear-gradient(to right, #114b5f, #0077b6);
         margin-bottom: 30px;
         border-radius: 8px;
         box-shadow: var(--surface-elevation);
+        transition: transform 0.3s ease;
+        color: var(--text-color);
       }
       section::before,
       section::after {
@@ -133,7 +135,7 @@
       }
       section.active {
         opacity: 1;
-        transform: scale(1);
+        transform: scale(1.05);
         z-index: 10;
       }
       .hero h2 {
@@ -147,6 +149,26 @@
         margin: 20px auto;
         color: #f0f0f0;
       }
+      .hero .logo-placeholder {
+        width: auto;
+        height: auto;
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 2px dashed rgba(255, 255, 255, 0.5);
+        margin: 0 auto 20px;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: pulse 2s infinite alternate;
+      }
+      @keyframes pulse {
+        from {
+          transform: scale(1);
+        }
+        to {
+          transform: scale(1.1);
+        }
+      }
       .features {
         display: flex;
         justify-content: space-around;
@@ -157,13 +179,14 @@
         flex: 1;
         padding: 20px;
         border-radius: 10px;
-        background-color: var(--background-color);
+        background-color: var(--surface-color);
         box-shadow: var(--surface-elevation);
         margin: 15px;
         transition: all 0.3s ease;
         position: relative;
         overflow: hidden;
         text-align: center;
+        color: var(--primary-dark);
       }
       .feature:hover {
         transform: translateY(-5px);
@@ -173,7 +196,6 @@
         font-size: 20px;
         margin-bottom: 15px;
         text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-        color: var(--primary-dark);
       }
       .feature i {
         font-size: 40px;
@@ -182,7 +204,7 @@
         text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
       }
       .services {
-        background-color: var(--surface-color);
+        background: linear-gradient(to right, #114b5f, #0077b6);
         padding: 60px 20px;
         border-radius: 8px;
         margin-bottom: 30px;
@@ -195,7 +217,7 @@
         margin-bottom: 35px;
         text-align: center;
         text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-        color: var(--primary-dark);
+        color: var(--text-color);
       }
       .carousel-container {
         display: flex;
@@ -213,7 +235,7 @@
       .carousel-item {
         min-width: 250px;
         height: 180px;
-        background-color: #f0f0f0; /* Changed to light gray */
+        background-color: #f0f0f0;
         border: 1px solid #ddd;
         border-radius: 8px;
         display: flex;
@@ -248,17 +270,16 @@
         border-radius: 8px;
         box-shadow: var(--surface-elevation);
         margin-bottom: 30px;
+        color: var(--text-color);
       }
       .contact h2 {
         font-size: 30px;
         margin-bottom: 25px;
         text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-        color: var(--primary-dark);
       }
       .contact p {
         max-width: 700px;
         margin: 20px auto;
-        color: var(--text-color);
       }
       .contact-form {
         display: flex;
@@ -341,6 +362,13 @@
           max-width: 95%;
           padding: 20px;
         }
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        header h1 {
+          margin-bottom: 10px;
+        }
       }
       @keyframes fadeIn {
         from {
@@ -365,7 +393,7 @@
   <body>
     <header>
       <h1>
-        <img src="./static/images/logo.png" alt="CoResearch AI Logo" />
+        <img src="static/images/logo.png" alt="CoResearch AI Logo" />
         CoResearch AI
       </h1>
       <nav>
@@ -378,8 +406,16 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
+      
     </header>
     <section id="home" class="hero">
+        <div class="logo-placeholder">
+            <img
+              src="static/images/brand_image.png"
+              alt="Brand Catalogue Cover"
+              style="max-width: 100%; height: auto;"
+            />
+          </div>
       <h2>Accelerating AI Innovation Through Collaboration</h2>
       <p>
         CoResearch AI is a cutting-edge platform designed to foster
@@ -454,7 +490,7 @@
           <i class="fas fa-university"></i>
           <p>Harvard Collaboration</p>
         </div>
-        </div>
+      </div>
     </section>
     <section id="safety" class="services">
       <h2>Generative AI Safety and Security Expertise</h2>
@@ -494,6 +530,10 @@
         <textarea placeholder="Your Message" rows="5" required></textarea>
         <button type="submit">Send Message</button>
       </form>
+      <p>
+        You can also reach us at:
+        <a href="mailto:info@CoResearch.AI">info@CoResearch.AI</a>
+      </p>
     </section>
     <footer>
       <p>&copy; 2025 CoResearch AI. All rights reserved.</p>
