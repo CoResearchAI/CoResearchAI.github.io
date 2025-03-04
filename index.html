@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CoResearch AI</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      :root {
+        --primary-color: #00308F;
+        --primary-dark: #001A63;
+        --secondary-color: #007BFF;
+        --accent-color: #00A6FB;
+        --text-color: #ffffff;
+        --background-color: #F0F2F5;
+        --surface-color: #ffffff;
+        --surface-elevation: 0 2px 4px rgba(0, 0, 0, 0.1);
+        --highlight-color: rgba(0, 123, 255, 0.1);
+        --success-color: #28a745;
+        --error-color: #dc3545;
+        --font-main: "Poppins", sans-serif;
+      }
+      body {
+        font-family: var(--font-main);
+        margin: 0;
+        padding: 0;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+      }
+      header {
+        background: linear-gradient(to right, #114b5f, #0077b6);
+        color: var(--text-color);
+        padding: 20px;
+        box-shadow: var(--surface-elevation);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      header h1 {
+        font-size: 24px;
+        margin: 0;
+        display: flex;
+        align-items: center;
+      }
+      header h1 img {
+        margin-right: 10px;
+        height: 30px;
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+      }
+      nav ul li {
+        margin: 0 15px;
+        position: relative;
+      }
+      nav ul li a {
+        color: var(--text-color);
+        text-decoration: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+      }
+      nav ul li a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        transform: translateY(-2px);
+      }
+      section {
+        padding: 80px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        opacity: 1;
+        transform: scale(1);
+        background-color: var(--surface-color);
+        margin-bottom: 30px;
+        border-radius: 8px;
+        box-shadow: var(--surface-elevation);
+      }
+      section::before,
+      section::after {
+        content: "";
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background: radial-gradient(circle, #3d5a80 30%, rgba(0, 0, 0, 0) 70%);
+        opacity: 0.7;
+        z-index: 0;
+      }
+      section::before {
+        top: 20px;
+        left: 20px;
+      }
+      section::after {
+        bottom: 20px;
+        right: 20px;
+      }
+      section.hero {
+        background: linear-gradient(to right, #114b5f, #0077b6);
+        color: var(--text-color);
+        border-radius: 0;
+        box-shadow: none;
+        padding: 120px 20px;
+        margin-bottom: 50px;
+        text-align: center;
+      }
+      section.active {
+        opacity: 1;
+        transform: scale(1);
+        z-index: 10;
+      }
+      .hero h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      }
+      .hero p {
+        font-size: 18px;
+        max-width: 800px;
+        margin: 20px auto;
+        color: #f0f0f0;
+      }
+      .features {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-top: 30px;
+      }
+      .feature {
+        flex: 1;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: var(--background-color);
+        box-shadow: var(--surface-elevation);
+        margin: 15px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+      }
+      .feature:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      }
+      .feature h3 {
+        font-size: 20px;
+        margin-bottom: 15px;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        color: var(--primary-dark);
+      }
+      .feature i {
+        font-size: 40px;
+        margin-bottom: 20px;
+        color: var(--accent-color);
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+      }
+      .services {
+        background-color: var(--surface-color);
+        padding: 60px 20px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+        box-shadow: var(--surface-elevation);
+        position: relative;
+        overflow: hidden;
+      }
+      .services h2 {
+        font-size: 32px;
+        margin-bottom: 35px;
+        text-align: center;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        color: var(--primary-dark);
+      }
+      .carousel-container {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 20px;
+        padding: 20px;
+        border-radius: 12px;
+        margin-top: 30px;
+        position: relative;
+        overflow: hidden;
+        background-color: var(--background-color);
+        box-shadow: var(--surface-elevation);
+      }
+      .carousel-item {
+        min-width: 250px;
+        height: 180px;
+        background-color: #f0f0f0; /* Changed to light gray */
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        scroll-snap-align: start;
+        transition: transform 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        font-size: 18px;
+        text-align: center;
+        padding: 15px;
+        color: var(--text-color);
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+      }
+      .carousel-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      }
+      .carousel-item i {
+        font-size: 50px;
+        margin-bottom: 10px;
+        color: var(--secondary-color);
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+      }
+      .contact {
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        background-color: var(--background-color);
+        padding: 80px 20px;
+        border-radius: 8px;
+        box-shadow: var(--surface-elevation);
+        margin-bottom: 30px;
+      }
+      .contact h2 {
+        font-size: 30px;
+        margin-bottom: 25px;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        color: var(--primary-dark);
+      }
+      .contact p {
+        max-width: 700px;
+        margin: 20px auto;
+        color: var(--text-color);
+      }
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        max-width: 600px;
+        margin: 30px auto;
+        padding: 30px;
+        border-radius: 12px;
+        background-color: var(--surface-color);
+        box-shadow: var(--surface-elevation);
+      }
+      .contact-form input,
+      .contact-form textarea {
+        margin-bottom: 20px;
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-family: var(--font-main);
+        background-color: #f8f8f8;
+        color: var(--text-color);
+        font-size: 16px;
+      }
+      .contact-form button {
+        background-color: var(--accent-color);
+        color: var(--text-color);
+        border: none;
+        padding: 15px 30px;
+        border-radius: 30px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: var(--font-main);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        margin-top: 15px;
+        font-size: 16px;
+      }
+      .contact-form button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      }
+      footer {
+        background-color: var(--primary-dark);
+        color: var(--text-color);
+        text-align: center;
+        padding: 25px;
+        margin-top: 60px;
+        box-shadow: var(--surface-elevation);
+        position: relative;
+        overflow: hidden;
+        border-radius: 0;
+      }
+      footer p {
+        font-size: 14px;
+        color: #ddd;
+      }
+      @media (max-width: 768px) {
+        nav ul {
+          flex-direction: column;
+          align-items: center;
+        }
+        nav ul li {
+          margin: 10px 0;
+        }
+        .hero h2 {
+          font-size: 28px;
+        }
+        .hero p {
+          font-size: 16px;
+        }
+        .features {
+          flex-direction: column;
+        }
+        .feature {
+          margin: 20px 0;
+        }
+        .carousel-item {
+          min-width: 80%;
+        }
+        .contact-form {
+          max-width: 95%;
+          padding: 20px;
+        }
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes slideIn {
+        from {
+          transform: translateY(20px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>
+        <img src="CoResearchAI.github.io/static/images/brand_image.png" alt="CoResearch AI Logo" />
+        CoResearch AI
+      </h1>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#academic">Academic</a></li>
+          <li><a href="#safety">Safety</a></li>
+          <li><a href="#patents">Patents</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section id="home" class="hero">
+      <h2>Accelerating AI Innovation Through Collaboration</h2>
+      <p>
+        CoResearch AI is a cutting-edge platform designed to foster
+        collaboration, accelerate research, and democratize access to
+        advanced AI tools and resources, with a strong focus on Generative AI
+        Safety and Security.
+      </p>
+      <div class="features">
+        <div class="feature">
+          <i class="fas fa-users"></i>
+          <h3>Collaborative Research</h3>
+          <p>
+            Shared workspaces, version control, and real-time communication
+            for seamless teamwork.
+          </p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-microchip"></i>
+          <h3>AI Model Development</h3>
+          <p>
+            Pre-built models, training capabilities, and easy deployment for
+            rapid innovation.
+          </p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-database"></i>
+          <h3>Our Patents and IPs</h3>
+          <p>
+            Secure storage, visualization tools, and data sharing to protect
+            your innovations.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section id="services" class="services">
+      <h2>Our R&D and IP Creation Services</h2>
+      <div class="carousel-container">
+        <div class="carousel-item">
+          <i class="fas fa-lightbulb"></i>
+          <p>Gen AI Research</p>
+        </div>
+        <div class="carousel-item">
+          <i class="fas fa-graduation-cap"></i>
+          <p>Model Training</p>
+        </div>
+        <div class="carousel-item">
+          <i class="fas fa-wrench"></i>
+          <p>Custom Solutions</p>
+        </div>
+        <div class="carousel-item">
+          <i class="fas fa-search-plus"></i>
+          <p>RAG Implementation</p>
+        </div>
+        <div class="carousel-item">
+          <i class="fas fa-robot"></i>
+          <p>Agentic Solutions</p>
+        </div>
+      </div>
+    </section>
+    <section id="academic" class="services">
+      <h2>Academic Collaboration</h2>
+      <div class="carousel-container">
+        <div class="carousel-item">
+          <i class="fas fa-university"></i>
+          <p>IIT Collaboration</p>
+        </div>
+        <div class="carousel-item">
+          <i class="fas fa-university"></i>
+          <p>BITS Collaboration</p>
+        </div>
+        <div class="carousel-item">
+          <i class="fas fa-university"></i>
+          <p>Harvard Collaboration</p>
+        </div>
+        </div>
+    </section>
+    <section id="safety" class="services">
+      <h2>Generative AI Safety and Security Expertise</h2>
+      <p>
+        All models and research infused with state of the art Prompt Injection,
+        and Jailbreaking defense, robust safety, Topicality Guardrails,
+        Hallucination Guardrails, DLP Guardrails, ensuring responsible AI
+        innovation.
+      </p>
+    </section>
+    <section id="patents" class="services">
+      <h2>Our Patents and IPs</h2>
+      <div class="carousel-container">
+        <div class="carousel-item">
+          <i class="fas fa-file-patent"></i>
+          <p>Patent 1</p>
+        </div>
+        <div class="carousel-item">
+          <i class="fas fa-file-patent"></i>
+          <p>Patent 2</p>
+        </div>
+        <div class="carousel-item">
+          <i class="fas fa-file-patent"></i>
+          <p>Patent 3</p>
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="contact">
+      <h2>Contact Us</h2>
+      <p>
+        We are excited to explore collaborations. Please fill out the form
+        below to get in touch with us.
+      </p>
+      <form class="contact-form">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+    <footer>
+      <p>&copy; 2025 CoResearch AI. All rights reserved.</p>
+    </footer>
+    <script>
+      const sections = document.querySelectorAll("section");
+      const navLi = document.querySelectorAll("nav ul li");
+      window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          if (pageYOffset >= sectionTop - window.innerHeight / 3) {
+            current = section.getAttribute("id");
+          }
+        });
+        navLi.forEach((li) => {
+          li.classList.remove("active");
+          if (
+            li.getElementsByTagName("a")[0].getAttribute("href").slice(1) ==
+            current
+          ) {
+            li.classList.add("active");
+          }
+        });
+      });
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+            } else {
+              entry.target.classList.remove("active");
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+      sections.forEach((section) => {
+        observer.observe(section);
+      });
+    </script>
+  </body>
+</html>
