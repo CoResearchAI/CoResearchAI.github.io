@@ -24,7 +24,7 @@ const Header = ({ activeSection }) => {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-gradient-to-r from-blue-800 to-indigo-900 text-white p-5 shadow-md flex justify-between items-center w-full">
+    <header className="sticky top-0 z-50 bg-gradient-to-r from-blue-900  via-black to-blue-900 text-white p-5 shadow-md flex justify-between items-center w-full">
       <h1 className="text-2xl flex items-center">
         <img src="src/static/images/logo.png" alt="Logo" className="mr-2 h-8" />
         CoResearch AI
@@ -42,7 +42,7 @@ const Header = ({ activeSection }) => {
               <li key={item.id} className="my-3 lg:my-0">
                 <a
                   href={`#${item.id}`}
-                  className={`px-4 py-2 rounded transition-all duration-300 hover:bg-opacity-10 hover:bg-white hover:text-accent-color block lg:inline ${
+                  className={`px-4 py-2 rounded transition-all duration-300 hover:bg-opacity-10 hover:bg-blue-700 hover:text-accent-color block lg:inline ${
                     activeSection === item.id ? 'text-accent-color' : ''
                   }`}
                   onClick={closeMenu}
@@ -55,7 +55,7 @@ const Header = ({ activeSection }) => {
         </div>
         
         {/* Theme Toggle */}
-        <div className="ml-4 bg-white bg-opacity-5 border border-white border-opacity-10 rounded-full p-2 cursor-pointer transition-all duration-300 hover:bg-opacity-10">
+        <div className="ml-4 bg-blue-900 bg-opacity-5 border border-white border-opacity-10 rounded-full p-2 cursor-pointer transition-all duration-300 hover:bg-opacity-10">
           <FaMoon className="text-accent-color" />
         </div>
       </nav>

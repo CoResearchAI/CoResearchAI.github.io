@@ -32,7 +32,7 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-blue-500 text-gray-800">
+    <div className="min-h-screen bg-gradient-to-r from-blue-400 via-blue-700 to-blue-400 text-gray-800">
       <Header activeSection={activeSection} />
       <main>
         <Hero />
