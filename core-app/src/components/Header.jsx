@@ -1,6 +1,6 @@
 // src/components/Header.jsx
 import React, { useState } from 'react';
-import { HiOutlineMenu } from 'react-icons/hi';
+import { HiOutlineMenu, HiX } from 'react-icons/hi';
 import { FaMoon } from 'react-icons/fa';
 
 const Header = ({ activeSection }) => {
@@ -24,17 +24,20 @@ const Header = ({ activeSection }) => {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-gradient-to-r from-blue-800 to-indigo-900 text-white p-5 shadow-md flex justify-between items-center">
-      <h1 className="text-2xl m-0 flex items-center">
-        <img src="src\static\images\logo.png" alt="Logo" className="mr-2 h-8" />
+    <header className="sticky top-0 z-50 bg-gradient-to-r from-blue-800 to-indigo-900 text-white p-5 shadow-md flex justify-between items-center w-full">
+      <h1 className="text-2xl flex items-center">
+        <img src="src/static/images/logo.png" alt="Logo" className="mr-2 h-8" />
         CoResearch AI
       </h1>
       <nav className="flex items-center">
-        <div className="lg:hidden cursor-pointer" onClick={toggleMenu}>
-          <HiOutlineMenu className="text-2xl" />
-        </div>
-        <div className={`nav-links ${isMenuOpen ? 'block' : 'hidden'} lg:block`}>
-          <ul className="lg:flex lg:space-x-6 absolute lg:static top-16 left-0 w-full lg:w-auto bg-dark-surface lg:bg-transparent shadow-md lg:shadow-none p-4 lg:p-0">
+        {/* Mobile Menu Button */}
+        <button className="lg:hidden text-2xl" onClick={toggleMenu}>
+          {isMenuOpen ? <HiX /> : <HiOutlineMenu />}
+        </button>
+        
+        {/* Navigation Links */}
+        <div className={`absolute lg:static top-16 left-0 w-full lg:w-auto bg-blue-900 lg:bg-transparent shadow-lg lg:shadow-none transition-all duration-300 ${isMenuOpen ? 'block' : 'hidden'} lg:flex`}>
+          <ul className="lg:flex lg:space-x-6 p-4 lg:p-0">
             {navItems.map((item) => (
               <li key={item.id} className="my-3 lg:my-0">
                 <a
@@ -50,7 +53,9 @@ const Header = ({ activeSection }) => {
             ))}
           </ul>
         </div>
-        <div className="theme-toggle ml-4 bg-white bg-opacity-5 border border-white border-opacity-10 rounded-full p-2 cursor-pointer transition-all duration-300 hover:bg-opacity-10">
+        
+        {/* Theme Toggle */}
+        <div className="ml-4 bg-white bg-opacity-5 border border-white border-opacity-10 rounded-full p-2 cursor-pointer transition-all duration-300 hover:bg-opacity-10">
           <FaMoon className="text-accent-color" />
         </div>
       </nav>
@@ -59,4 +64,3 @@ const Header = ({ activeSection }) => {
 };
 
 export default Header;
-
