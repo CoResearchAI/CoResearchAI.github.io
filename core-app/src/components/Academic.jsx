@@ -9,7 +9,7 @@ const Academic = () => {
   ];
 
   return (
-    <section id="academic" className="relative py-8 md:py-16 px-3 md:px-5 mx-auto max-w-6xl bg-gradient-to-r from-blue-400 to-blue-800 rounded-lg mb-8 shadow-md">
+    <section id="academic" className="relative py-8 md:py-16 px-3 md:px-5 mx-auto max-w-6xl bg-gradient-to-r from-blue-700 via-blue-400 to-blue-700 rounded-lg mb-8 shadow-md">
       <div className="glow glow-2 absolute -z-10 bottom-[-50px] left-[-50px] w-[200px] h-[200px] rounded-full bg-secondary-color blur-3xl opacity-15"></div>
       
       <h2 className="text-2xl sm:text-3xl md:text-4xl mb-4 md:mb-8 text-center text-accent-color">Academic Collaboration</h2>

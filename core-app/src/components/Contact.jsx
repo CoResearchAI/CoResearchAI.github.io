@@ -2,10 +2,10 @@ import React from 'react';
 
 const Contact = () => {
   return (
-    <section id="contact" className="relative py-8 sm:py-12 md:py-16 px-4 sm:px-5 mx-auto max-w-6xl text-center bg-gradient-to-r from-blue-400 to-blue-800 rounded-lg mb-8 shadow-md">
+    <section id="contact" className="relative py-8 sm:py-12 md:py-16 px-4 sm:px-5 mx-auto max-w-6xl text-center bg-gradient-to-r from-blue-700 via-blue-400 to-blue-700 rounded-lg mb-8 shadow-md">
       <div className="glow glow-1 absolute -z-10 top-[-100px] right-[-100px] w-[300px] h-[300px] rounded-full bg-accent-color blur-3xl opacity-15"></div>
       
-      <h2 className="text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 text-accent-color">Contact Us</h2>
+      <h2 className="text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 text-accent-color font-bold">Contact Us</h2>
       
       <p className="max-w-2xl mx-auto my-3 sm:my-5 text-sm sm:text-base">
         We are excited to explore collaborations. Please fill out the form
@@ -33,7 +33,7 @@ const Contact = () => {
         ></textarea>
         <button 
           type="submit" 
-          className="bg-gradient-to-r from-primary-color to-secondary-color text-text-color border-none py-3 sm:py-4 px-6 sm:px-8 rounded-full font-bold cursor-pointer transition-all duration-300 shadow-md mt-2 sm:mt-4 relative overflow-hidden hover:-translate-y-1 hover:shadow-lg text-sm sm:text-base"
+          className="bg-gradient-to-r from-blue-700 via-blue-500 to-blue-700 text-blue-950 border-none py-3 sm:py-4 px-6 sm:px-8 rounded-full font-bold cursor-pointer transition-all duration-300 shadow-md mt-2 sm:mt-4 relative overflow-hidden hover:-translate-y-1 hover:shadow-lg text-sm sm:text-base"
         >
           Send Message
           <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20 -translate-x-full hover:translate-x-full transition-transform duration-700"></span>

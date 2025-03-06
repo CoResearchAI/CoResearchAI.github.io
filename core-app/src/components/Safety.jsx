@@ -2,7 +2,7 @@ import React from 'react';
 
 const Safety = () => {
   return (
-    <section id="safety" className="relative py-8 sm:py-12 md:py-16 px-3 sm:px-4 md:px-5 mx-auto max-w-6xl bg-gradient-to-r from-dark-blue to-darker-blue rounded-lg mb-8 shadow-md">
+    <section id="safety" className="relative py-8 sm:py-12 md:py-16 px-3 sm:px-4 md:px-5 mx-auto max-w-6xl bg-gradient-to-r from-blue-700 via-blue-400 to-blue-700 rounded-lg mb-8 shadow-md">
       <div className="glow glow-1 absolute -z-10 top-[-100px] right-[-100px] w-[300px] h-[300px] rounded-full bg-accent-color blur-3xl opacity-15"></div>
       
       <h2 className="text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 md:mb-8 text-center text-accent-color">Generative AI Safety and Security Expertise</h2>

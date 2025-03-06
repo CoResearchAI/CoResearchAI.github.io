@@ -15,10 +15,10 @@ const Hero = () => {
       <div className="glow glow-2 absolute -z-10 bottom-[-50px] left-[-50px] w-[200px] h-[200px] rounded-full bg-secondary-color blur-3xl opacity-15"></div>
       
       {/* Hero Content */}
-      <h2 className="text-3xl sm:text-4xl md:text-5xl mb-6 text-shadow">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl mb-6 text-shadow font-bold text-accent-color">
         <span className="glitch-text inline-block">Accelerating AI Innovation</span> Through Collaboration
       </h2>
-      <p className="text-base sm:text-lg max-w-4xl mx-auto my-5 px-4">
+      <p className="text-accent-color sm:text-lg max-w-4xl mx-auto my-5 px-4 ">
         CoResearch AI is a cutting-edge platform designed to foster
         collaboration, accelerate research, and democratize access to
         advanced AI tools and resources, with a strong focus on Generative AI
@@ -50,7 +50,7 @@ const Hero = () => {
 const FeatureCard = ({ icon, title, description }) => {
   return (
     <div className="feature flex-1 min-w-[280px] max-w-[400px] p-6 rounded-xl bg-dark-surface shadow-md transition-all duration-300 text-center border border-white border-opacity-5 hover:transform hover:-translate-y-1 hover:shadow-lg hover:border-accent-color">
-      <div className="text-4xl mb-5 text-secondary-color">{icon}</div>
+      <div className="text-4xl mb-5 text-blue-950 flex flex-wrap justify-center">{icon}</div>
       <h3 className="text-xl mb-3 text-accent-color">{title}</h3>
       <p className="feature-description text-text-color opacity-80">{description}</p>
     </div>
