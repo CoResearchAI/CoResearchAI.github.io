@@ -9,16 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // Create extra dense stars specifically for the header
   createDenseStarsInHeader(header, 200);
 
-  // Create blue nebula effects for the header
-  createNebulasInHeader(header, 5);
-
-  // Create shooting stars periodically
-  setInterval(() => {
-    if (Math.random() > 0.7) {
-      createShootingStar(starField);
-    }
-  }, 2000);
-
   // Add scroll animation for sections
   const sections = document.querySelectorAll("section");
   window.addEventListener("scroll", () => {
