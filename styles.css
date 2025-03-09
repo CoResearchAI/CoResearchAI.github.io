@@ -193,7 +193,7 @@ header {
   top: 50%;
   width: 24em;
   margin: 0 auto;
-  border-right: 2px solid rgba(255, 255, 255, 0.75);
+  border-right: 2px solid transparent;
   font-size: 180%;
   text-align: center;
   white-space: nowrap;
@@ -211,14 +211,22 @@ header {
     width: 0;
   }
   to {
-    width: 41em;
+    width: 20em;
   }
 }
 @keyframes blinkTextCursor {
   from {
-    border-right-color: rgba(255, 255, 255, 0.75);
+    border-right-color:transparent;
   }
   to {
     border-right-color: transparent;
   }
+}
+.anim-typewriter-delay1 {
+  animation-delay: 5s; /* Adjust timing based on your first line's duration */
+}
+
+/* Delay for third line */
+.anim-typewriter-delay2 {
+  animation-delay: 8s; /* Adjust timing based on when you want the third line to start */
 }
