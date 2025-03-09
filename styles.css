@@ -193,7 +193,7 @@ header {
   top: 50%;
   width: 24em;
   margin: 0 auto;
-  border-right: 2px solid transparent;
+  border-right: transparent;
   font-size: 180%;
   text-align: center;
   white-space: nowrap;
