@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const scrollY = window.scrollY;
 
     sections.forEach((section) => {
-      const sectionTop = section.offsetTop;
+      const sectionTop = section.offsetTop; 
       const sectionHeight = section.offsetHeight;
 
       if (
